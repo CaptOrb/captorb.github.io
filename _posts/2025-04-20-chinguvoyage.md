@@ -1,7 +1,7 @@
 ## Crafting an AI Prompt App with Scrum: A 6-Week Coding Adventure 
 
 ### Introduction
-Chingu is an online platform that brings together Scrum Masters and developers from around the world to participate in a collaborative six-week voyage. During this time, teams work together to deliver an app, all while adhering to Scrum principles. Our recent project was the creation of an AI prompt app, which we built using agile methodology and teamwork. 
+[Chingu](https://chingu.io) is an online platform that brings together Scrum Masters and developers from around the world to participate in a collaborative six-week voyage. During this time, teams work together to deliver an app, all while adhering to Scrum principles. Our recent project was the creation of an AI prompt app, which we built using agile methodology and teamwork. 
 
 ### Starting the Voyage
 We were a team of seven, consisting of five developers, a Scrum Master, and a Shadow Scrum Master. To kick off our voyage, we began brainstorming ideas for a project we could complete within six weeks. After discussing various options, we decided to create an AI Prompt App.   
@@ -40,7 +40,7 @@ We decided on a 3 meetings a week approach (with daily standups inbetween), in t
 
 At times, it was helpful for team members to divide into unofficial "sub-groups" to work collaboratively on a feature. When this happened, it allowed bugs to be addressed early as well as improving the coding practices early on.
 
-On the technical side of things, it was my first time using NodeJS + Express + TypeScript as well as PostgreSQL. While NodeJS + Express was a bit of learning curve for me, I enjoyed using them. On the other hand, I found PostgreSQL quite easy as I was already familar with MySQL, and TypeScript was reasonably straightforward.
+On the technical side of things, it was my first time using NodeJS + Express + TypeScript as well as PostgreSQL. While NodeJS + Express was a bit of learning curve for me, I enjoyed using them. On the other hand, I found PostgreSQL quite easy as I was already familar with MySQL, and TypeScript was reasonably straightforward. We created a REST API for the frontend to communicate with the backend and vice versa.
 
 
 
@@ -49,7 +49,7 @@ On the technical side of things, it was my first time using NodeJS + Express + T
 
 
 ## Testing
-Given the time constraints, testing on this project was limited to testing API reponses through Postman as well as having another developer to manually test another developers PR.
+Given the time constraints, testing on this project was limited to testing API reponses through Postman as well as having another developer to manually test another developers Pull Request (PR).
 
 
 
@@ -62,10 +62,10 @@ In the interests of saving time, we decided to initally use a local PostgreSQL d
 Eventually, we decided on a Supabase hosted DB, which was very easy to setup.
 
 Render has "cold-starts"
-## Deployed APP.
-![JIRA board](/images/askiq_demo.PNG)  
+## Deployed APP
+[Press here to access the AskIQ App](https://)  
 
-[Press here to access the AskIQ App](https://) 
+![ASK_IQ_DEMO](/images/askiq_demo.PNG)  
 
 
 ## Lessons Learnt
