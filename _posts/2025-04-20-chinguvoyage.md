@@ -4,7 +4,7 @@
 [Chingu](https://chingu.io) is an online platform that brings together Scrum Masters and developers from around the world to participate in a collaborative six-week voyage. During this time, teams work together to deliver an app, all while adhering to Scrum principles. Our recent project was the creation of an AI prompt app, which we built using agile methodology and teamwork. 
 
 ### Starting the Voyage
-We were a team of seven, consisting of five developers, a Scrum Master, and a Shadow Scrum Master. To kick off our voyage, we began brainstorming ideas for a project we could complete within six weeks. After discussing various options, we decided to create an AI Prompt App.   
+We were a team of seven, consisting of five developers, a Scrum Master, and a Shadow Scrum Master. To kick off our voyage, we began brainstorming ideas for a project we could complete within six weeks. After discussing various options, we decided to create an AI Prompt App that integrates with the Google Gemini API.  
 This app features a pentagram-style form, allowing users to create and submit custom queries to the AI model by filling in five key components:
 
     Persona: Defines the role or identity of the AI for context.
@@ -40,7 +40,8 @@ We decided on a 3 meetings a week approach (with daily standups inbetween), in t
 
 At times, it was helpful for team members to divide into unofficial "sub-groups" to work collaboratively on a feature. When this happened, it allowed bugs to be addressed early as well as improving the coding practices early on.
 
-On the technical side of things, it was my first time using NodeJS + Express + TypeScript as well as PostgreSQL. While NodeJS + Express was a bit of learning curve for me, I enjoyed using them. On the other hand, I found PostgreSQL quite easy as I was already familar with MySQL, and TypeScript was reasonably straightforward. We created a REST API for the frontend to communicate with the backend and vice versa.
+On the technical side of things, it was my first time using NodeJS + Express + TypeScript as well as PostgreSQL. While NodeJS + Express was a bit of learning curve for me, I enjoyed using them. On the other hand, I found PostgreSQL quite easy as I was already familar with MySQL, and TypeScript was reasonably straightforward.   
+We created a REST API for the frontend to communicate with the backend and vice versa and secured the endpoints with JWT based authentication.
 
 
 
@@ -69,7 +70,7 @@ Render has "cold-starts"
 
 
 ## Lessons Learnt
-- Importance of daily standups / communication so any issues can be addressed quickly and "head-on"  
+- Importance of daily standups / communication so issues can be addressed quickly and "head-on"  
 
 - Avoiding "scope change" (e.g. don't deviate from the MVP at late stages during a sprint)
 
@@ -78,6 +79,7 @@ Render has "cold-starts"
 
 ## Future Enhancements.
 - Allow users to save personas
+- Add rate limits to the app
 
 ## Conclusion
 
