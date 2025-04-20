@@ -19,7 +19,7 @@ This app features a pentagram-style form, allowing users to create and submit cu
 
     Constraint: Sets any limitations or boundaries for the AI’s response
 
-With a clear concept in place, we moved on to defining a simple yet functional Minimum Viable Product (MVP). Estimating development time at this stage was challenging, so we kept the scope minimal and allocated a week for bug fixes. To stay user-focused, one team member created a Figma flow illustrating the app’s pages and how they should behave based on user login status
+With a clear concept in place, we moved on to defining a simple yet functional Minimum Viable Product (MVP). Estimating development time at this stage was challenging, so we kept the scope minimal and allocated a week for bug fixes. To stay user-focused, one team member created a Figma flow illustrating the app’s pages and how they should behave based on user login status,, which was then reviewed and refined by the team.
 
 From this, the scrum masters created a Jira board with a backlog of all tasks to be completed for our MVP (and some stretch goals). We agreed on a tech stack (see below), and agreed on some ground rules (such as daily standups, a GitHub workflow etc.).
 
