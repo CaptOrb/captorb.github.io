@@ -5,7 +5,8 @@
 Our recent project was the creation of an AI prompt app, from the initial concept to a deployed app at the end.
 
 ### Starting the Voyage
-We were a team of seven, consisting of five developers, a Scrum Master, and a Shadow Scrum Master. To kick off our voyage, we began brainstorming ideas for a project we could complete within six weeks. After discussing various options, we decided to create an AI Prompt App that integrates with the Google Gemini API.  
+We were a team of seven, consisting of five developers, a Scrum Master, and a Shadow Scrum Master.   
+To kick off our voyage, we began brainstorming ideas for a project we could complete within six weeks. After discussing various options, we decided to create an AI Prompt App that integrates with the Google Gemini API.  
 This app features a pentagram-style form, allowing users to create and submit custom queries to the AI model by filling in five key components:
 
     Persona: Defines the role or identity of the AI for context.
