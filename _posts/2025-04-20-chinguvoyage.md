@@ -14,7 +14,7 @@ This app features a pentagram-style form, allowing users to create and submit cu
 
     Task: Specifies the task or action the AI should perform.
 
-    Output: Details the desired outcome or format for the AI's response (e.g., a list, explanation, code).
+    Output: Details the desired outcome or format for the AI's response.
 
     Constraint: Sets any limitations or boundaries for the AI’s response
 
@@ -33,6 +33,8 @@ From this, the scrum masters created a Jira board with a backlog of all tasks to
 - **Database**: PostgreSQL (hosted on Supabase)
 - **Deployment & Hosting**: Nginx, Render, Netlify
 - **Collobration**: Jira
+- **Prototyping**: Figma
+
 
 ## Development Experience
 As mentioned above, we were a team of seven, all from different backgrounds and all bringing different skills / perspectives to the voyage.
