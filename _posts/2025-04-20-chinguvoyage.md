@@ -58,6 +58,8 @@ We disallowed direct pushes to the development or main branch in order to isolat
 ## Testing
 Given the time constraints, testing on this project was limited to testing API reponses through Postman as well as having developers manually test each other’s PRs.
 
+## Documentation
+We used Swagger to document the REST API endpoints. This will make it easier to maintain the app in the future and help any new developers quickly understand how the API works.
 
 
 ## Deployment
@@ -97,3 +99,5 @@ Eventually, we decided on a Supabase hosted DB, which was very easy to setup.
 ## Conclusion
 Working on this project with the team was an excellent opportunity to gain experience in a simulated software development environment.   
 We aimed to mimic a real-world software project by following Scrum principles and maintaining a solid GitHub workflow. Although we faced challenges along the way, we were able to deliver our MVP, deploying the completed app to the web.
+
+If you’d like to dive deeper into the code or explore the project further, here’s the [Github Repo](https://github.com/chingu-voyages/V54-tier3-team-35/tree/main)  
