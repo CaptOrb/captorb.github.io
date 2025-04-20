@@ -1,7 +1,8 @@
 ## Crafting an AI Prompt App with Scrum: A 6-Week Coding Adventure 
 
 ### Introduction
-[Chingu](https://chingu.io) is an online platform that brings together Scrum Masters and developers from around the world to participate in a collaborative six-week voyage. During this time, teams work together to deliver an app, all while adhering to Scrum principles. Our recent project was the creation of an AI prompt app, which we built using agile methodology and teamwork. 
+[Chingu](https://chingu.io) is an online platform that brings together Scrum Masters and developers from around the world to participate in a collaborative six-week voyage. During this time, teams work together to deliver an app, all while adhering to Scrum principles.   
+Our recent project was the creation of an AI prompt app, which we built using agile methodology and teamwork. 
 
 ### Starting the Voyage
 We were a team of seven, consisting of five developers, a Scrum Master, and a Shadow Scrum Master. To kick off our voyage, we began brainstorming ideas for a project we could complete within six weeks. After discussing various options, we decided to create an AI Prompt App that integrates with the Google Gemini API.  
@@ -45,12 +46,14 @@ We created a REST API for the frontend to communicate with the backend and vice 
 
 
 
-
+### Git Best Practices
+We strove to adhere to Git best practices in tis voyage. Our workflow consisted of feature branches, hotfix branches, a development branch and a main branch.   
+We disallowed direct pushes to the development or main branch in order to isolate any bugs that occured in the feature branch were they occured. When a developer was sasified their feature was complete, they created a Pull Request (PR) to merge their feature branch into the development branch, which another developer would have to approve (or request changes) before merging the changes. Similarly, at the end of a sprint a PR would be created to merge the development branch into the main branch.
 
 
 
 ## Testing
-Given the time constraints, testing on this project was limited to testing API reponses through Postman as well as having another developer to manually test another developers Pull Request (PR).
+Given the time constraints, testing on this project was limited to testing API reponses through Postman as well as having other developers to manually test another developers PR.
 
 
 
@@ -62,7 +65,7 @@ In the interests of saving time, we decided to initally use a local PostgreSQL d
 
 Eventually, we decided on a Supabase hosted DB, which was very easy to setup.
 
-Render has "cold-starts"
+Render has "cold-starts" whereby the user may experience a delay if the app hasn't been used recently. This is a limitation of the free tier.
 ## Deployed APP
 [Press here to access the AskIQ App](https://)  
 
