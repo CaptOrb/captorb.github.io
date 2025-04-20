@@ -1,8 +1,8 @@
 ## Crafting an AI Prompt App with Scrum: A 6-Week Coding Adventure 
 
 ### Introduction
-[Chingu](https://chingu.io) is an online platform that brings together Scrum Masters and developers from around the world to participate in a collaborative six-week voyage. During this time, teams work together to deliver an app, all while adhering to Scrum principles.   
-Our recent project was the creation of an AI prompt app, which we built using agile methodology and teamwork. 
+[Chingu](https://chingu.io) is an online platform that brings together Scrum Masters and developers from around the world to participate in a collaborative six-week voyage (project). During this time, teams work together to deliver an app, all while adhering to Scrum principles.   
+Our recent project was the creation of an AI prompt app, from the initial concept to a deployed app at the end.
 
 ### Starting the Voyage
 We were a team of seven, consisting of five developers, a Scrum Master, and a Shadow Scrum Master. To kick off our voyage, we began brainstorming ideas for a project we could complete within six weeks. After discussing various options, we decided to create an AI Prompt App that integrates with the Google Gemini API.  
