@@ -56,14 +56,14 @@ We disallowed direct pushes to the development or main branch in order to isolat
 
 
 ## Testing
-Given the time constraints, testing on this project was limited to testing API reponses through Postman as well as having other developers to manually test another developers PR.
+Given the time constraints, testing on this project was limited to testing API reponses through Postman as well as having other developers to manually test another developers PRs.
 
 
 
 ## Deployment
 For deployment, the goal was to have a completely free deployment that didn't require a credit card. We decided on Netlify + Render.
 
-Render has "cold-starts" whereby the user may experience a delay if the app hasn't been used recently. This is a limitation of the free tier but it was a tradeoff we were able to accept as this app is mainly a proof of concept.
+Render has "cold-starts" whereby the user may experience a delay if the app hasn't been used recently. This is a limitation of the free tier but it was a tradeoff we were willing to accept as this app is mainly a proof of concept.
 
 One of the challenges was coming up with a hosted database that didn't have any excessive restrictions (e.g. Render automatically deletes the database 30 days after creation if you use the free tier.)  
 In the interests of saving time, we decided to initially use a local PostgreSQL database while we researched what hosted database to use, knowing that when we eventually decided on what hosted DB to use, the code changes would be miminal.
@@ -81,7 +81,8 @@ Eventually, we decided on a Supabase hosted DB, which was very easy to setup.
 
 - Avoiding "scope change" (e.g. don't deviate from the MVP at late stages during a sprint)
 
-- Keeping meetings action based and focus on achieving the MVP
+- Keeping meetings action based and focus on achieving the MVP  
+
 - Avoid over-complicatating the organisational side of the project (e.g. for this small project, Trello might of been simpler than Jira)
 
 ## Future Enhancements.
