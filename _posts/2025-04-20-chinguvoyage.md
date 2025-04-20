@@ -49,7 +49,7 @@ We created a REST API for the frontend to communicate with the backend and vice 
 
 
 ### Git Best Practices
-We strove to adhere to Git best practices in tis voyage. Our workflow consisted of feature branches, hotfix branches, a development branch and a main branch.   
+We strove to adhere to Git best practices in this voyage. Our workflow consisted of feature branches, hotfix branches, a development branch and a main branch.   
 We disallowed direct pushes to the development or main branch in order to isolate any bugs that occured in the feature branch were they occured. When a developer was sasified their feature was complete, they created a Pull Request (PR) to merge their feature branch into the development branch, which another developer would have to approve (or request changes) before merging the changes. Similarly, at the end of a sprint a PR would be created to merge the development branch into the main branch.
 
 
