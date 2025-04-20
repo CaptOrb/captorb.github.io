@@ -20,7 +20,7 @@ This app features a pentagram-style form, allowing users to create and submit cu
 
 With a clear concept in place, we moved on to defining a simple yet functional Minimum Viable Product (MVP). Estimating development time at this stage was challenging, so we kept the scope minimal and allocated a week for bug fixes. To stay user-focused, one team member created a Figma flow illustrating the app’s pages and how they should behave based on user login status
 
-From this, the scrum masters created a Jira board with a backlog of all tasks to be completed for our MVP (and some stretch goals). We agreed on a tech stack (more on this later), and agreed on some ground rules (such as daily standups, a GitHub workflow etc.).
+From this, the scrum masters created a Jira board with a backlog of all tasks to be completed for our MVP (and some stretch goals). We agreed on a tech stack (see below), and agreed on some ground rules (such as daily standups, a GitHub workflow etc.).
 
 ![JIRA board](/images/jira_board.PNG)
 
@@ -56,7 +56,7 @@ We disallowed direct pushes to the development or main branch in order to isolat
 
 
 ## Testing
-Given the time constraints, testing on this project was limited to testing API reponses through Postman as well as having other developers to manually test another developers PRs.
+Given the time constraints, testing on this project was limited to testing API reponses through Postman as well as having developers manually test each other’s PRs.
 
 
 
@@ -85,11 +85,15 @@ Eventually, we decided on a Supabase hosted DB, which was very easy to setup.
 
 - Avoid over-complicatating the organisational side of the project (e.g. for this small project, Trello might of been simpler than Jira)
 
-## Future Enhancements.
-- Allow users to save personas
-- Add rate limits to the app
-- Add unit and integration testing
+## Future Enhancements
+- Allow users to save personas and load them subsequently
+
+- Add rate limits to the app  
+
+- Add unit and integration testing  
+
 - Minimise the "cold-starts" on Render
 
 ## Conclusion
-
+Working on this project with the team was an excellent opportunity to gain experience in a simulated software development environment.   
+We aimed to mimic a real-world software project by following Scrum principles and maintaining a solid GitHub workflow. Although we faced challenges along the way, we were able to deliver our MVP, deploying the completed app to the web.
