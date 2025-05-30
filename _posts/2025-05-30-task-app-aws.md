@@ -158,7 +158,7 @@ As much as possible, I tried to adhere to AWS security best practices for my dep
 - Secrets obtained from Secrets Manager
 
 **VPC & Networking**:
-Importance of a dedicated, isolated network.
+Provides a dedicated, isolated network
 
 **Security Token Service (STS)**
 Notice here, we are using STS: AssumeRole which provides temporary credentials..
@@ -192,7 +192,7 @@ Notice here, we are using STS: AssumeRole which provides temporary credentials..
 ## Future Enhancements
 - Add CI/CD pipeline to upload frontend code to S3 to invalidate the cache and upload backend to ECR
 - In a production environment with real users, enable CloudTrail and GuardDuty for increased security (cost involved)
-- If cost wasn't an issue, use NAT Gateway instead of a NAT instance.
+- If cost wasn't an issue, use NAT Gateway instead of a NAT instance
 - Could use the Cloud Development Kit (CDK) to create the CloudFormation template
 
 ## Conclusion
