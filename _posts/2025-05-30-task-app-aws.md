@@ -52,7 +52,7 @@ I chose Amazon RDS with MySQL to meet the application's original requirements wi
 While the primary role of a load balancer is to distribute incoming traffic, AWS Application Load Balancer (ALB) offers additional benefits such as:
 
 
-* **Health Checks:** ALB provides robust health checks at the application layer, allowing it to monitor the actual responsiveness of the application endpoint (e.g., an HTTP 200 OK response from `/health`). This ensures that traffic is only sent to truly healthy instances, improving application availability
+* **Health Checks:** ALB provides robust health checks at the application layer, allowing it to monitor the actual responsiveness of the application endpoint. This ensures that traffic is only sent to truly healthy instances, improving application availability
 
 - No longer need to worry about EC2 instance IPs changing (e.g. on restart) as we are using the public DNS of the ALB
 
@@ -146,6 +146,7 @@ As much as possible, I tried to adhere to AWS security best practices for my dep
 
 
 ![CloudFrontHeaders](/images/cloudfront.PNG)
+
 ****We can see Security Headers such as HSTS and X-Frame Option being set from the managed security policy****
 
 **RDS** 
