@@ -185,7 +185,7 @@ Notice here, we are using STS: AssumeRole which provides temporary credentials..
 - Use correct AMI
 - Be careful to research the cost of using each service
 - Setup billing alarms to keep an eye on costs incurred 
-- Avoid CloudFormation stack rollback on failure: Enable log retention and manual deletion for better debugging.
+- Avoid CloudFormation stack rollback on failure: Enable log retention and manual deletion for better debugging
 - Certificate for CloudFront must be created in **us-east-1** region
 - Debugging Tip: Early Error Detection with ECS Task Status and Health Checks
 
