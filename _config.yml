@@ -1,3 +1,6 @@
+highlighter: rouge
+markdown: kramdown
+
 title: "Conor's Blog"
 author: "Conor Barry"
 description: "A blog where I will share what projects I have been working on, and what I've learnt thoughout the way."
@@ -16,8 +19,9 @@ theme: "minima"
 rss: rss
 
 kramdown:
+  input: GFM
   syntax_highlighter_opts:
-    disable: true
+    line_numbers: true
     
 plugins:
   - jekyll-feed
