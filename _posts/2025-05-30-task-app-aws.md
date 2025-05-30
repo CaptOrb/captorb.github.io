@@ -95,17 +95,19 @@ I chose to use CloudFormation for my IAC. Which provides the following benefits:
 
 - Reproducible deployments
  
-Here we fetch the secrets from Secret Manager in the ECSTaskDefinition avoiding hard coding sensitive information in the template.
+Here we fetch the secrets from Secret Manager in the `ECSTaskDefinition`, avoiding hard-coding sensitive information in the template.
+
+{% raw %}
 ```yaml
 Environment:
 - Name: SPRING_DATASOURCE_USERNAME
-Value: !Sub "{{resolve:secretsmanager:/taskapp/db-credentials:SecretString:username}}"
+  Value: !Sub "{{resolve:secretsmanager:/taskapp/db-credentials:SecretString:username}}"
 - Name: SPRING_DATASOURCE_PASSWORD
-Value: !Sub "{{resolve:secretsmanager:/taskapp/db-credentials:SecretString:password}}"
+  Value: !Sub "{{resolve:secretsmanager:/taskapp/db-credentials:SecretString:password}}"
 - Name: JWT_SECRET
-Value: !Sub "{{resolve:secretsmanager:/taskapp/db-credentials:SecretString:jwt}}"
-
+  Value: !Sub "{{resolve:secretsmanager:/taskapp/db-credentials:SecretString:jwt}}"
 ```
+{% endraw %}
 
 As I am using a t4g.small instance for my EC2 backed ECS which runs on ARM it was necessary to cross compile the docker image for the backend to ARM64 before pushing the image to ECR (Elastic Container Registry), so it could run on the instance. ECR is essentially just a private Docker image repository.
 
