@@ -56,7 +56,7 @@ While the primary role of a load balancer is to distribute incoming traffic, AWS
 
 - No longer need to worry about EC2 instance IPs changing (e.g. on restart) as we are using the public DNS of the ALB
 
-![Cloud Architecture](/images/asg-health.png)
+![Cloud Architecture](/images/asg-health.PNG)
 
 
 It's worth noting that while I limited the number of instances to reduce costs, the setup can be easily scaled to increase availability and performance if needed.
@@ -147,7 +147,7 @@ As much as possible, I tried to adhere to AWS security best practices for my dep
 
 ![CloudFrontHeaders](/images/cloudfront.PNG)
 
-****We can see Security Headers such as HSTS and X-Frame Option being set from the managed security policy****
+**We can see Security Headers such as HSTS and X-Frame Option being set from the managed security policy**
 
 **RDS** 
 - The database is not publicly accessible, reducing the attack surface
