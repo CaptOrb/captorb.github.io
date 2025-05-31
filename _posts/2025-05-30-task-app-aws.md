@@ -121,9 +121,11 @@ Given the full template is over 600 lines, here’s a concise summary of the mai
 
 - **ALB**: Creates an Application Load Balancer (ALB), a target group for the ECS service, and an ALB listener to forward HTTP traffic to the ECS tasks.
 
-- **RDS (MySQL)** Database: Provisions a MySQL RDS instance
+- **RDS (MySQL)**: Database: Provisions a MySQL RDS instance
 
 - **S3 + CloudFront** for React Frontend: Sets up an S3 bucket to host the static React frontend, along with a bucket policy to allow CloudFront access
+
+- **Outputs**: Outputs the CloudFront URL for the frontend, can be used as the CNAME target when configuring a custom subdomain (e.g., app.example.com).
 
 One challenge when using CloudFormation at first was that if the stack failed to create, it would delete the logs making troubleshooting difficult, but there is an option to retain the logs even after stack deletion.
 
@@ -161,7 +163,9 @@ As much as possible, I tried to adhere to AWS security best practices for my dep
 Provides a dedicated, isolated network
 
 **Security Token Service (STS)**
-Notice here, we are using STS: AssumeRole which provides temporary credentials..
+- STS: AssumeRole provides temporary credentials eliminating the need to store access keys in code. This eliminates the risk of credentials accidentally being exposed (e.g., in Git repos or logs)
+- AssumeRolePolicyDocument defines who can assume the role
+
 ```yaml
   ECSInstanceRole:
     Type: AWS::IAM::Role
@@ -180,6 +184,10 @@ Notice here, we are using STS: AssumeRole which provides temporary credentials..
         - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
 ```
 
+**AWS Certificate Manager (ACM)**
+- TLS certificate generated in ACM through DNS validation
+- ACM can autorenew the certificate
+- The certificate can be attached to CloudFront, enabling HTTPS for the frontend with a custom domain
 
 ## Lessons learnt
 - Use correct AMI
