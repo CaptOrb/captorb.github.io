@@ -119,6 +119,8 @@ Given the full template is over 600 lines, here’s a concise summary of the mai
 
 - **ECS Task Definition and Service**: Defines an ECS task definition for the taskapp-container using a Docker image from ECR, An ECS service is created to run and maintain the desired count of tasks on the ECS cluster, integrating with the ALB.
 
+- **ECSLogGroup**: Contains CloudWatch logs from the SpringBoot backend, helpful for debugging
+
 - **ALB**: Creates an Application Load Balancer (ALB), a target group for the ECS service, and an ALB listener to forward HTTP traffic to the ECS tasks.
 
 - **RDS (MySQL)**: Database: Provisions a MySQL RDS instance
@@ -190,15 +192,17 @@ Provides a dedicated, isolated network
 - The certificate can be attached to CloudFront, enabling HTTPS for the frontend with a custom domain
 
 ## Lessons learnt
-- Use correct AMI
+- Use correct AMI (e.g. using old AMIs could introduce security flaws)
 - Be careful to research the cost of using each service
 - Setup billing alarms to keep an eye on costs incurred 
 - Avoid CloudFormation stack rollback on failure: Enable log retention and manual deletion for better debugging
+- Use the DependsOn attribute in CloudFormation to ensure resources in the stack are created in the right order
+- Debugging Tip: At times CloudFormation can appear to hang. I found it helpful to get Early Error Detection by checking the ECS Task Status, CloudWatch and Health Checks status
 - Certificate for CloudFront must be created in **us-east-1** region
-- Debugging Tip: Early Error Detection with ECS Task Status and Health Checks
+
 
 ## Future Enhancements
-- Add CI/CD pipeline to upload frontend code to S3 to invalidate the cache and upload backend to ECR
+- Add a CI/CD pipeline to upload frontend code to S3 to invalidate the cache and upload backend to ECR (coming soon!)
 - In a production environment with real users, enable CloudTrail and GuardDuty for increased security (cost involved)
 - If cost wasn't an issue, use NAT Gateway instead of a NAT instance
 - Could use the Cloud Development Kit (CDK) to create the CloudFormation template
