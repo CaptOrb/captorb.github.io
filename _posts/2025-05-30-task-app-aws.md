@@ -141,19 +141,41 @@ As much as possible, I tried to adhere to AWS security best practices for my dep
 - Database secrets and JWT token are encrypted by AES-256 and fetched from the SecretsManager
 
 **Session Manager vs Instance Connect**
-- AWS recommends using Session Manager instead of Instance Connect
-- Allows SSH port to be closed, reducing the attack surface
+- AWS recommends using Session Manager instead of Instance Connect as it allows the SSH port to be closed, reducing the attack surface
 
 **CloudFront**
-- DDOS protection
+- Provides DDOS protection by default
 - ViewerProtocolPolicy: redirect-to-https forces secure access
-- Security headers set to the AWS managed security policy
-- S3 access control	Using OriginAccessControlId, only CloudFront can access S3
+- Security Headers set to the AWS managed security policy (e.g. provides HSTS and X-Frame-Options headers)
+- S3 access control: Origin Access Control (OAC) ensures only CloudFront can access the S3 bucket
 
+```yaml
+  FrontendBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref FrontendBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub 'arn:aws:s3:::${FrontendBucket}/*'
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}"
 
-![CloudFrontHeaders](/images/cloudfront.PNG)
+  CloudFrontOAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub '${AWS::StackName}-FrontendOAC'
+        SigningBehavior: always
+        SigningProtocol: sigv4
+        OriginAccessControlOriginType: s3
 
-**We can see Security Headers such as HSTS and X-Frame Option being set from the managed security policy**
+```
 
 **RDS** 
 - The database is not publicly accessible, reducing the attack surface
