@@ -176,6 +176,7 @@ As much as possible, I tried to adhere to AWS security best practices for my dep
         OriginAccessControlOriginType: s3
 
 ```
+Note in the ARN, the CloudFront distribution created elsewhere in the template is referenced as the condition, this ensures that only that specific CloudFront distribution is allowed to access the S3 bucket.
 
 **RDS** 
 - The database is not publicly accessible, reducing the attack surface
