@@ -211,7 +211,7 @@ Provides a dedicated, isolated network
 
 **AWS Certificate Manager (ACM)**
 - TLS certificate generated in ACM through DNS validation
-- ACM can autorenew the certificate
+- ACM can auto-renew the certificate
 - The certificate can be attached to CloudFront, enabling HTTPS for the frontend with a custom domain
 
 ## Lessons learnt
