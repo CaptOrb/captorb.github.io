@@ -9,7 +9,7 @@ Previously, the app was deployed to Oracle Cloud using Docker Compose and a CI/C
 
 As illustrated in the diagram below, the user interacts with CloudFront, which intelligently routes requests for static content to an S3 bucket and API calls to the Application Load Balancer (ALB). Note the VPC and Internet Gateway are omitted here for brevity.
 
-![Cloud Architecture](/images/cloud_arch_task.png)
+![Cloud Architecture Diagram](/images/cloud_arch_task.png)
 
 ### Design Decisions
 #### Backend
@@ -95,7 +95,7 @@ I chose to use CloudFormation for my IAC. Which provides the following benefits:
 
 - Reproducible deployments
  
-Here we fetch the secrets from Secret Manager in the `ECSTaskDefinition`, avoiding hard-coding sensitive information in the template.
+Here we fetch the secrets from Secrets Manager in the `ECSTaskDefinition`, avoiding hard-coding sensitive information in the template.
 
 {% raw %}
 ```yaml
@@ -225,7 +225,7 @@ Provides a dedicated, isolated network
 
 
 ## Future Enhancements
-- Add a CI/CD pipeline to upload frontend code to S3 to invalidate the cache and upload backend to ECR (coming soon!)
+- Add a CI/CD pipeline to upload frontend code to S3 to invalidate the cache and upload backend to ECR
 - In a production environment with real users, enable CloudTrail and GuardDuty for increased security (cost involved)
 - If cost wasn't an issue, use NAT Gateway instead of a NAT instance
 - Could use the Cloud Development Kit (CDK) to create the CloudFormation template
