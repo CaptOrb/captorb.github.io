@@ -1,18 +1,18 @@
 ## CI/CD for Spring Boot + React on AWS: Automating Deployments with GitHub Actions
 
-### Objective
+## Objective
 In my previous blog post, I detailed the architecture decisions, CloudFormation setup, and security considerations for deploying a Spring Boot + React app on AWS. Building on that foundation, this post will focus on creating a fully automated CI/CD pipeline. The pipeline will automatically run tests and deploy the application every time code is pushed to GitHub, streamlining the development workflow and ensuring faster, reliable deployments.
 
-### Revisiting the Cloud Architecture
-Recall that the cloud infrastrucure for this application is deployed via CloudFormation. The backend is to deployed to a EC2 backed ECS and the Frontend is deployed to S3 and served through CloudFront.
+## Revisiting the Cloud Architecture
+Recall that the cloud infrastrucure for this application is deployed via CloudFormation. The backend is deployed to a EC2-backed ECS and the Frontend is deployed to S3 and served through CloudFront.
 
 ![Cloud Architecture Diagram](/images/cloud_arch_task.png)
 
 
-### Creating the CI/CD pipeline
-Using GitHub Actions, I created a CI/CD pipeline that is trigged when I push to my aws_deploy branch. First, I build the frontend and run the tests using Maven. The tests use JUnit and Mockito. Notice below I divided this pipeline into several sections namely "Checkout code, Set up JDK, etc. This makes it easier to visualise what parts of the pipeline have succeeded or failed allowing for easier debugging.
+## Creating the CI/CD pipeline
+Using GitHub Actions, I created a CI/CD pipeline that is triggered when I push to my aws_deploy branch. First, I build the frontend and run the tests using Maven. The tests use JUnit and Mockito. 
 
-#### Security Considerations
+### Security Considerations
 
 
 
@@ -57,6 +57,8 @@ GitHubActionsDeployPolicy with
     - !Sub "arn:aws:ecr:${AWS::Region}:${AWS::AccountId}:repository/taskapp"
 ```
 {% endraw %}
+
+Notice below I divided this pipeline into several sections namely "Checkout code, Set up JDK, etc. This makes it easier to visualise what parts of the pipeline have succeeded or failed allowing for easier debugging.
 
 #### Building and Testing the Backend
 {% raw %}
