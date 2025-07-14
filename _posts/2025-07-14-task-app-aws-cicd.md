@@ -20,13 +20,16 @@ Malicious bots can automatically scan for the presence of AWS credentials in Git
 ![AWS BOT](/images/aws_bot_check.PNG)
 
 
-The fact that AWS access keys are long lived poses security risks, so to avoid those risks I instead opted to use OIDC. 
+The fact that AWS access keys are long lived and don't expire unless manually rotated poses security risks e.g. it requires storing the access key in GitHub Secrets and ...
+To avoid those risks I instead opted to use OIDC. 
+
+When using OIDC, GitHub  generates a short-lived token which AWS then verifies. This token allows GitHub to assume an IAM role temporarily which limits the scope and duration of AWS access. For this purpose, an GitHubActionsRole IAM role exists in AWS.
 
 ### Adjusting the CloudFormation template for CI/CD
-I knew I had to amend my CloudFormation template to allow ECS deployments, allow the ECSService to be updated with changes aswell as allowing a CloudFront invalidation so the frontend could be updated with the latest content. 
+I started by amending my CloudFormation template to create a GitHub Actions role for OIDC. This uses the ``sts:AssumeRoleWithWebIdentity`` action 
 
-edits needed to cloudformation.
-GitHubActionsRole - sts:AssumeRoleWithWebIdentity -oidc
+ allow ECS deployments, allow the ECSService to be updated with changes aswell as allowing frontend files to be stored on S3 and a CloudFront invalidation so the frontend could be updated with the latest content. 
+
 GitHubActionsDeployPolicy with
 
 {% raw %}
@@ -66,12 +69,13 @@ GitHubActionsDeployPolicy with
 ```
 {% endraw %}
 
-Using GitHub Actions, I created a CI/CD pipeline that is triggered when I push to my aws_deploy branch. First, I build the frontend and run the tests using Maven. The tests use JUnit and Mockito. 
-
+Using GitHub Actions, I created a CI/CD pipeline that is triggered when I push to my aws_deploy branch.
 
 Notice below I divided this pipeline into several sections namely "Checkout code, Set up JDK, etc. This makes it easier to visualise what parts of the pipeline have succeeded or failed allowing for easier debugging.
 
 #### Building and Testing the Backend
+
+This is quite straightforward. I use a ARM based runner as the EC2 instances I use are ARM based, checkout the code, set up the JSK and build the backend with Maven and finally run the backend tests using Maven. 
 {% raw %}
 ```yaml
   build-backend:
