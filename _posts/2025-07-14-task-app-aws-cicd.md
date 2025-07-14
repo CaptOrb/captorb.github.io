@@ -10,13 +10,21 @@ Recall that the cloud infrastrucure for this application is deployed via CloudFo
 
 
 ## Creating the CI/CD pipeline
-Using GitHub Actions, I created a CI/CD pipeline that is triggered when I push to my aws_deploy branch. First, I build the frontend and run the tests using Maven. The tests use JUnit and Mockito. 
+Before creating the CI/CD pipeline, I planned out my approach. I decided to use GitHub Actions instead of AWS tools such as CodeDeploy and CodeDeploy because...
 
 ### Security Considerations
 
+A key security consideration was to use OIDC (OpenID Connect) instead of access keys for this deployment.
 
+Malicious bots can automatically scan for the presence of AWS credentials in GitHub repositories resulting in account compromise or malicious actors using your account to rack up tens of thousands of Euro. I didn't have to wait long to see such an attempt on my server. Note, a 200 response is returned because React takes over control over the routing, but no AWS credentials are stored in my repo or server.
+![AWS BOT](/images/aws_bot_check.PNG)
+
+
+The fact that AWS access keys are long lived poses security risks, so to avoid those risks I instead opted to use OIDC. 
 
 ### Adjusting the CloudFormation template for CI/CD
+I knew I had to amend my CloudFormation template to allow ECS deployments, allow the ECSService to be updated with changes aswell as allowing a CloudFront invalidation so the frontend could be updated with the latest content. 
+
 edits needed to cloudformation.
 GitHubActionsRole - sts:AssumeRoleWithWebIdentity -oidc
 GitHubActionsDeployPolicy with
@@ -57,6 +65,9 @@ GitHubActionsDeployPolicy with
     - !Sub "arn:aws:ecr:${AWS::Region}:${AWS::AccountId}:repository/taskapp"
 ```
 {% endraw %}
+
+Using GitHub Actions, I created a CI/CD pipeline that is triggered when I push to my aws_deploy branch. First, I build the frontend and run the tests using Maven. The tests use JUnit and Mockito. 
+
 
 Notice below I divided this pipeline into several sections namely "Checkout code, Set up JDK, etc. This makes it easier to visualise what parts of the pipeline have succeeded or failed allowing for easier debugging.
 
