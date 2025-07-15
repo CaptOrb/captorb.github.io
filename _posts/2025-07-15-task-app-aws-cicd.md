@@ -1,4 +1,4 @@
-## Secure CI/CD for Spring Boot & React on AWS with GitHub Actions and OIDC
+## Secure CI/CD for Spring Boot + React on AWS with GitHub Actions and OIDC
 
 ## Objective
 In my previous blog post, I discussed the architecture decisions, CloudFormation setup, and security considerations for deploying a Spring Boot + React app on AWS. 
@@ -18,12 +18,12 @@ Before setting up the pipeline, I needed to address some security considerations
 
 ### Security Considerations
 
-A key security consideration was to use ``OIDC (OpenID Connect)`` instead of access keys for this deployment.
+A key security consideration was to use **OIDC (OpenID Connect)** instead of access keys for this deployment.
 
 Malicious bots can automatically scan for the presence of AWS credentials in GitHub repositories resulting in account compromise, or malicious actors using your account to rack up tens of thousands of Euro. I didn't have to wait long to see such an attempt on my server. 
 
-Note: a 200 response is returned because React handles routing client-side, the endpoint doesn't exist on the server.
 ![AWS BOT](/images/aws_bot_check.PNG)
+Note: a 200 response is returned because React handles routing client-side, the endpoint doesn't exist on the server.
 
 
 The fact that AWS access keys are long lived and don't expire unless manually rotated poses security risks e.g. it requires storing the access key in GitHub Secrets and rotating it manually which is error prone and easy to neglect.
@@ -94,7 +94,7 @@ Building the frontend is very simple so I have omitted the code for brevity. It 
 As I deploy the build in separate stage, I use the ``actions/upload-artifact@v4`` action to make the build available in the deployment stage.
 
 #### Deploying the Frontend
-Deploying the frontend is relatively simple, I use OIDC to gain temporary credentials and assume the GitHub Actions Role, then use the frontend build which was generated in a prior stage and upload it to S3 and invalidate the CloudFront cache to ensure users see the latest version of my application.
+Deploying the frontend is relatively simple, I use **OIDC** to gain temporary credentials and assume the GitHub Actions Role, then use the frontend build which was generated in a prior stage and upload it to S3 and invalidate the CloudFront cache to ensure users see the latest version of my application.
 
 {% raw %}
 ```yaml
@@ -165,7 +165,7 @@ This is quite straightforward. I use a ARM based runner as the EC2 instances I u
 
 #### Deploying the backend
 
-To deploy the backend, GitHub Actions uses OIDC to gain the necessary temporary permissions. The backend Docker image is then built, tagged, and pushed to Amazon ECR (Elastic Container Registry). Finally the ECS Service is updated to ensure the latest version of the backend is fully deployed. Note that secrets such AWS_ACCOUNT_ID are securely stored in GitHub Secrets.
+To deploy the backend, GitHub Actions uses OIDC to gain the necessary temporary permissions. The backend Docker image is then built, tagged, and pushed to **Amazon ECR (Elastic Container Registry)**. Finally the ECS Service is updated to ensure the latest version of the backend is fully deployed. Note that secrets such as **AWS_ACCOUNT_ID** are securely stored in **GitHub Secrets**.
 
 {% raw %}
 ```yaml
@@ -207,8 +207,8 @@ To deploy the backend, GitHub Actions uses OIDC to gain the necessary temporary 
 ```
 {% endraw %}
 
-#### Comparison of Docker buildx vs native ARM 64 runner
-Initially I was using Docker buildx to cross compile for ARM since the EC2 instance has an ARM based architecture. This was very slow and resulted in the pipeline taking over 6 minutes to complete upon each push to GitHub. 
+#### Comparison of Docker Buildx vs native ARM 64 runner
+Initially I was using Docker Buildx to cross compile for ARM since the EC2 instance has an ARM based architecture. This was very slow and resulted in the pipeline taking over 6 minutes to complete upon each push to GitHub. 
 
 ![CI/CD BuildX](/images/cicd-prenative.png)
 
