@@ -14,7 +14,7 @@ Recall that the cloud infrastructure for this application is deployed via CloudF
 ## Creating the CI/CD pipeline
 I decided to use GitHub Actions instead of AWS tools such as CodePipeline, because it's both free and easy to use. 
 
-Before setting up the pipeline, I needed to address some security considerations and update the CloudFormation template to grant the necessary permissions to allow a sucessful deployment to AWS.
+Before setting up the pipeline, I needed to address some security considerations and update the CloudFormation template to grant the necessary permissions to allow a successful deployment to AWS.
 
 ### Security Considerations
 
@@ -86,8 +86,52 @@ To support deployments to ECS, update the ECS service with new task definitions,
 
 Using GitHub Actions, I created a CI/CD pipeline that is triggered when I push to my aws_deploy branch.
 
-Notice below I divided this pipeline into several sections namely "Checkout code, Set up JDK, etc. This makes it easier to visualise what parts of the pipeline have succeeded or failed, allowing for easier debugging.
+Notice below I divided this pipeline into several sections. This makes it easier to visualise what parts of the pipeline have succeeded or failed, allowing for easier debugging.
 
+#### Building and Testing the Frontend
+Building the frontend is very simple so I have omitted the code for brevity. It involves checking out the code, installing dependencies using ``npm ci`` and then building using ``npm run build``
+
+As I deploy the build in separate stage, I use the ``actions/upload-artifact@v4`` action to make the build available in the deployment stage.
+
+#### Deploying the Frontend
+Deploying the frontend is relatively simple, I use OIDC to gain temporary credentials and assume the GitHub Actions Role, then use the frontend build which was generated in a prior stage and upload it to S3 and invalidate the CloudFront cache to ensure users see the latest version of my application.
+
+{% raw %}
+```yaml
+  deploy-frontend:
+    name: Deploy Frontend to AWS
+    runs-on: ubuntu-latest
+    needs: build-frontend
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.1
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHub_Actions_Role
+          aws-region: eu-west-1
+
+      - name: Download frontend build
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
+
+      - name: Upload build to S3
+        run: |
+          aws s3 cp frontend/dist s3://${{ secrets.AWS_S3_BUCKET }}/ --recursive
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DIST_ID }} \
+            --paths "/*"
+```
+{% endraw %}
 #### Building and Testing the Backend
 
 This is quite straightforward. I use a ARM based runner as the EC2 instances I use are ARM based, checkout the code, set up the JDK and build the backend with Maven and finally run the backend tests using Maven. 
@@ -173,7 +217,7 @@ As of January 2025, GitHub Actions now supports native ARM runners which reduced
 
 ## Lessons learnt
 - Use OIDC instead of access keys for better security
-- Use native GitHub Actions runner when possible
+- Use native GitHub Actions runner for faster deployments where possible
 
 
 ## Conclusion
