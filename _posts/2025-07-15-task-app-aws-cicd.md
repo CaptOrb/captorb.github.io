@@ -221,7 +221,7 @@ As of January 2025, GitHub Actions now supports native ARM runners which reduced
 
 
 ## Conclusion
-I really enjoyed completing learning how to build secure CI/CD pipelines to deploy applications to AWS. It allowed me to optimise my workflow as well as cut deployment time in half.
+I really enjoyed learning how to build secure CI/CD pipelines to deploy applications to AWS. It allowed me to optimise my workflow as well as cut deployment time in half.
 
 
 
