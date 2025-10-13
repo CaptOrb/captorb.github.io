@@ -1,3 +1,4 @@
+/* General styles */
 hr {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -7,39 +8,117 @@ hr {
 .post_navi {
   display: flex;
 }
-
 .post_navi-label {
   font-size: 0.8em;
   opacity: 0.5;
 }
-
 .post_navi .post_navi-item {
   padding: 0 2.2em;
   width: 50%;
   position: relative;
   color: inherit !important;
 }
-
 .post_navi .nav_prev {
   text-align: left;
 }
-
 .post_navi .nav_next {
   text-align: right;
 }
-
 .post_navi .nav_prev .post_navi-arrow {
   left: 0;
 }
-
 .post_navi .nav_next .post_navi-arrow {
   right: 0;
 }
-
 .post_navi .post_navi-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 2.5em;
   opacity: 0.3;
+}
+
+/* Protect footer from Tailwind - preserve 3-column layout */
+.site-footer {
+  display: block !important;
+  padding-bottom: 30px !important;
+}
+
+.site-footer .wrapper {
+  display: block !important;
+  overflow: visible !important;
+}
+
+.site-footer .footer-col-wrapper {
+  display: flex !important;
+  margin-left: -15px !important;
+}
+
+.site-footer .footer-col {
+  display: block !important;
+  flex: 1 !important;
+  padding-left: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+.site-footer .footer-col-1 {
+  width: 25% !important;
+}
+
+.site-footer .footer-col-2 {
+  width: 50% !important;
+}
+
+.site-footer .footer-col-3 {
+  width: 25% !important;
+}
+
+.site-footer .social-media-list {
+  display: block !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin-left: 0 !important;
+  line-height: 2 !important;
+}
+
+.site-footer .social-media-list li {
+  display: inline-block !important;
+  margin-right: 15px !important;
+  list-style: none !important;
+  padding: 5px 0 !important;
+  vertical-align: middle !important;
+}
+
+.site-footer .social-media-list a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+.site-footer svg,
+.site-footer .svg-icon {
+  display: inline-block !important;
+  vertical-align: middle !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin-right: 8px !important;
+  flex-shrink: 0 !important;
+  overflow: visible !important;
+}
+
+.site-footer .social-media-list a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  padding: 2px !important;
+  overflow: visible !important;
+}
+
+.site-footer .social-media-list li {
+  display: inline-block !important;
+  margin-right: 15px !important;
+  list-style: none !important;
+  padding: 5px !important;
+  vertical-align: middle !important;
+  overflow: visible !important;
 }

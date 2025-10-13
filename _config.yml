@@ -10,6 +10,13 @@ description: "A blog where I will share what projects I have been working on, an
 github_username: "captorb"
 linkedin_username: "conor-barry1"
 
+# Header pages navigation
+header_pages:
+  - index.md
+  - archive.md
+
+
+
 
 #########################################################################################
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
@@ -37,3 +44,8 @@ defaults:
       type: post
     values:
       tags: Other
+
+# Add portfolio to main navigation
+header_pages:
+  - about.md
+  - portfolio/index.md
