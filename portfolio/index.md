@@ -141,6 +141,12 @@ title: Portfolio
           <div class="tw-text-sm tw-font-medium tw-text-gray-900">TypeScript</div>
         </div>
 
+                <div class="tw-bg-white tw-p-4 tw-rounded-lg tw-shadow tw-text-center">
+          <img class="tw-w-8 tw-h-8 tw-mx-auto tw-mb-2" src="https://img.icons8.com/?size=100&id=17842&format=png&color=000000" alt="Linux"/>
+          <div class="tw-text-sm tw-font-medium tw-text-gray-900">Linux</div>
+        </div>
+
+
       </div>
     </div>
   </div>
