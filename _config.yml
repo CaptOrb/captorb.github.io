@@ -45,7 +45,7 @@ defaults:
     values:
       tags: Other
 
-# Add portfolio to main navigation
+# Main navigation
 header_pages:
-  - about.md
-  - portfolio/index.md
+  - blog/index.md
+  - archive.md
