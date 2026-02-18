@@ -9,7 +9,7 @@ title: Task Management App
       <!-- Project Header -->
       <div class="tw-bg-gradient-to-r tw-from-blue-500 tw-to-purple-600 tw-px-8 tw-py-12 tw-text-white">
         <h1 class="tw-text-4xl tw-font-bold tw-mb-4">Task Management App</h1>
-        <p class="tw-text-xl tw-opacity-90">A full-stack task management application built with modern web technologies</p>
+        <p class="tw-text-xl tw-opacity-90">Java Spring Boot REST API + React frontend, deployed to AWS ECS & S3 with automated CI/CD</p>
       </div>
 
       <!-- Project Content -->
@@ -18,7 +18,8 @@ title: Task Management App
         <section class="tw-mb-12">
           <h2 class="tw-text-3xl tw-font-bold tw-text-gray-900 tw-mb-6">Project Overview</h2>
           <p class="tw-text-lg tw-text-gray-700 tw-leading-relaxed tw-mb-6">
-            The Task Management App is a comprehensive full-stack application designed to help users organise, track, and manage their tasks efficiently. Built with a modern tech stack, this application demonstrates best practices in web development, cloud deployment, and user experience design.
+            A full-stack task management application built from concept to AWS deployment. The backend is a Java Spring Boot REST API backed by MySQL with JWT-based authentication. The React + TypeScript frontend is styled with Tailwind CSS.
+            The backend runs on AWS ECS and the frontend is hosted on S3, with infrastructure provisioned via CloudFormation and deployments automated through GitHub Actions CI/CD. The project includes push notification support via ntfy, and achieves 77% test coverage using JUnit and Mockito.
           </p>
         </section>
 
@@ -46,6 +47,17 @@ title: Task Management App
               <div>
                 <h3 class="tw-font-semibold tw-text-gray-900 tw-mb-1">User Authentication</h3>
                 <p class="tw-text-gray-600">Secure JWT based user registration and login</p>
+              </div>
+            </div>
+            <div class="tw-flex tw-items-start tw-space-x-4">
+              <div class="tw-flex-shrink-0 tw-w-8 tw-h-8 tw-bg-purple-100 tw-rounded-full tw-flex tw-items-center tw-justify-center">
+                <svg class="tw-w-5 tw-h-5 tw-text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="tw-font-semibold tw-text-gray-900 tw-mb-1">Push Notifications</h3>
+                <p class="tw-text-gray-600">Real-time task reminders delivered to any device via ntfy</p>
               </div>
             </div>
           </div>
