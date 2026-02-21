@@ -22,7 +22,7 @@ title: Home
         </div>
         <div class="p-6">
           <h3 class="text-xl font-semibold text-gray-900 mb-2">Task Management App</h3>
-          <p class="text-gray-600 mb-4 h-24">Led end-to-end development from concept to AWS deployment. Features JWT authentication, CI/CD via GitHub Actions, and 77% test coverage with JUnit and Mockito.</p>
+          <p class="text-gray-600 mb-4 h-24">Led end-to-end development from concept to AWS deployment. Features JWT authentication, CI/CD via GitHub Actions, and 77% test coverage with JUnit and Mockito</p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">Java</span>
             <span class="px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Spring Boot</span>
@@ -72,7 +72,7 @@ title: Home
         </div>
         <div class="p-6">
           <h3 class="text-xl font-semibold text-gray-900 mb-2">AWS Deployments</h3>
-          <p class="text-gray-600 mb-4 h-24">Automated deployment pipeline using AWS services for continuous integration and delivery.</p>
+          <p class="text-gray-600 mb-4 h-24">Automated deployment pipeline using AWS services for continuous integration and delivery</p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">AWS</span>
             <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">CI/CD</span>

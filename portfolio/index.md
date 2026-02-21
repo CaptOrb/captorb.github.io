@@ -72,7 +72,7 @@ title: Portfolio
         </div>
         <div class="p-6">
           <h3 class="text-xl font-semibold text-gray-900 mb-2">AWS Deployments</h3>
-          <p class="text-gray-600 mb-4 h-24">Automated deployment pipeline using AWS services for continuous integration and delivery.</p>
+          <p class="text-gray-600 mb-4 h-24">Automated deployment pipeline using AWS services for continuous integration and delivery</p>
           <div class="flex flex-wrap gap-2 mb-4">
             <span class="px-3 py-1 bg-orange-100 text-orange-800 text-sm rounded-full">AWS</span>
             <span class="px-3 py-1 bg-red-100 text-red-800 text-sm rounded-full">CI/CD</span>
