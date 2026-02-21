@@ -157,6 +157,19 @@ title: Chingu Voyage Project
               </div>
             </div>
           </section>
+          <!-- Blog Posts -->
+          <section class="tw-mb-12">
+            <h2 class="tw-text-3xl font-bold text-gray-900 mb-6">Related Blog Posts</h2>
+            <div class="tw-flex tw-flex-col tw-gap-4">
+              <a href="{% post_url 2025-04-20-chinguvoyage %}" class="tw-flex tw-items-center tw-gap-3 tw-p-4 tw-bg-gray-50 tw-rounded-lg hover:tw-bg-gray-100 tw-transition-colors tw-group">
+                <svg class="tw-w-5 tw-h-5 tw-text-blue-600 tw-flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <span class="tw-font-medium tw-text-gray-900 group-hover:tw-text-blue-600 tw-transition-colors">Crafting an AI Prompt App with Scrum: A 6-Week Coding Adventure</span>
+              </a>
+            </div>
+          </section>
+
           <!-- Links -->
           <section class="tw-mb-8">
             <h2 class="tw-text-3xl font-bold text-gray-900 mb-6">Project Links</h2>
